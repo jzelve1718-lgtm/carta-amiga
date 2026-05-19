@@ -14,48 +14,126 @@
     *{
       margin:0;
       padding:0;
-      min-height:100vh;
+      box-sizing:border-box;
+    }
+
+    body{
+      background:#e9e7e3;
+      font-family:Arial, sans-serif;
+      color:#222;
+      padding:50px 15px;
       display:flex;
       justify-content:center;
-      align-items:center;
-      background:linear-gradient(135deg,#ffdde1,#ee9ca7);
-      font-family:Arial, sans-serif;
-      overflow-x:hidden;
+    }
+
+    .page{
+      width:100%;
+      max-width:900px;
+    }
+
+    /* TARJETA PRINCIPAL */
+
+    .hero{
+      position:relative;
+      border-radius:30px;
+      overflow:hidden;
+      height:600px;
+      margin-bottom:30px;
+      box-shadow:0 15px 35px rgba(0,0,0,0.12);
+    }
+
+    .hero img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    .overlay{
+      position:absolute;
+      inset:0;
+      background:linear-gradient(
+        to top,
+        rgba(0,0,0,0.65),
+        rgba(0,0,0,0.1)
+      );
+      display:flex;
+      align-items:flex-end;
+      padding:50px;
+    }
+
+    .overlay h1{
+      color:white;
+      font-size:60px;
+      font-weight:300;
+      letter-spacing:3px;
     }
 
     /* CONTENIDO */
 
-    .carta{
+    .content{
       background:white;
-      width:85%;
+      border-radius:30px;
+      padding:50px;
+      box-shadow:0 10px 30px rgba(0,0,0,0.08);
+      animation:fade 1s ease;
+    }
+
+    .text{
       max-width:700px;
-      padding:40px;
-      border-radius:25px;
-      text-align:center;
-      box-shadow:0 10px 30px rgba(0,0,0,0.2);
-      animation:aparecer 1.5s ease;
-      margin:40px 0;
+      margin:auto;
     }
 
-    h1{
-      color:#ff4f81;
-      font-size:40px;
-      margin-bottom:25px;
-    }
-
-    p{
+    .text p{
+      font-size:18px;
+      line-height:2;
+      margin-bottom:28px;
       color:#444;
-      font-size:19px;
-      line-height:1.8;
-      margin-bottom:20px;
+    }
+
+    .quote{
+      font-size:24px;
+      line-height:1.7;
+      text-align:center;
+      margin:50px 0;
+      color:#111;
+      font-style:italic;
+    }
+
+    /* GALERÍA */
+
+    .gallery{
+      margin-top:50px;
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:18px;
+    }
+
+    .gallery img{
+      width:100%;
+      height:320px;
+      object-fit:cover;
+      border-radius:22px;
+      transition:0.4s;
+    }
+
+    .gallery img:hover{
+      transform:translateY(-5px);
+    }
+
+    .signature{
+      margin-top:50px;
+      font-size:22px;
+      text-align:center;
+      letter-spacing:2px;
     }
 
     button{
-      margin-top:20px;
-      padding:14px 30px;
+      margin:40px auto 0 auto;
+      display:block;
       border:none;
-      border-radius:30px;
-      background:#ff4f81;
+      padding:16px 35px;
+      border-radius:50px;
+      background:#111;
       color:white;
       font-size:15px;
       cursor:pointer;
@@ -69,7 +147,7 @@
     @keyframes fade{
       from{
         opacity:0;
-        transform:translateY(20px);
+        transform:translateY(30px);
       }
 
       to{
@@ -77,75 +155,115 @@
         transform:translateY(0);
       }
     }
+
+    /* CELULAR */
+
+    @media(max-width:700px){
+
+      .hero{
+        height:420px;
+      }
+
+      .overlay{
+        padding:30px;
+      }
+
+      .overlay h1{
+        font-size:38px;
+      }
+
+      .content{
+        padding:30px;
+      }
+
+      .text p{
+        font-size:16px;
+      }
+
+      .gallery{
+        grid-template-columns:1fr;
+      }
+
+      .gallery img{
+        height:260px;
+      }
+
+    }
+
   </style>
 </head>
 
 <body>
 
-  <div class="carta">
+  <div class="page">
 
-    <h1>💌 For Lindsey</h1>
+    <!-- FOTO PRINCIPAL -->
+    <div class="hero">
 
-<img src="imagenes/foto1.jpg" class="foto">
-<img src="imagenes/foto2.jpg" class="foto">
-<img src="imagenes/foto3.jpg" class="foto">
-<img src="imagenes/foto4.jpg" class="foto">
-<img src="imagenes/foto5.jpg" class="foto">
-<img src="imagenes/foto6.jpg" class="foto">
-<img src="imagenes/foto7.jpg" class="foto">
+      <img src="imagenes/imagen1.jpeg">
 
-    <p>
-      What a beautiful surprise it was to read your letter.
-      It truly touched my heart. Thank you for coming and
-      for sharing your time with us. For me, it was also
-      such a blessing to meet you and serve alongside you.
-    </p>
+      <div class="overlay">
+        <h1>For Lindsey ✨</h1>
+      </div>
 
-    <p>
-      I’m very happy to know that you enjoyed my country
-      and that you’re leaving with beautiful memories of us.
-      Perspectives truly change when you spend time with
-      people who have such a kind and generous heart like yours.
-      That verse from Proverbs 27:9 perfectly describes what
-      your friendship meant to me during that week.
-    </p>
-
-    <p>
-      I will never forget the way you serve others and
-      the huge heart you have for people. I care about you
-      so much, my friend.
-    </p>
-
-    <p>
-      Even if it may sound exaggerated since we only knew
-      each other for a short time, you were a great help
-      to me during these days. I was not going through the
-      best time, but your company reminded me of how much
-      God loves me, and He showed that love through you.
-    </p>
-
-    <p>
-      This is not a goodbye, but a “see you later!” ✨
-      I truly hope life allows our paths to cross again very soon.
-    </p>
-
-    <p>
-      I will also pray for you, that God guides you,
-      protects you, and richly blesses everything you do.
-    </p>
-
-    <p>
-      I will miss you very much.
-      Thank you for your sweet friendship 💖
-    </p>
-
-    <div class="firma">
-      — Josué
     </div>
 
-    <button onclick="mostrarMensaje()">
-      Click Here ✨
-    </button>
+    <!-- CONTENIDO -->
+    <div class="content">
+
+      <div class="text">
+
+        <p>
+          What a beautiful surprise it was to read your letter.
+          It truly touched my heart. Thank you for coming and
+          for sharing your time with us.
+        </p>
+
+        <p>
+          For me, it was such a blessing to meet you and
+          serve alongside you. I’m very happy to know that
+          you enjoyed my country and that you’re leaving
+          with beautiful memories of us.
+        </p>
+
+        <div class="quote">
+          “Your company reminded me of how much God loves me.”
+        </div>
+
+        <p>
+          Even if we only knew each other for a short time,
+          you became a very important person to me during these days.
+          I will never forget the kindness, joy and love
+          you show to others.
+        </p>
+
+        <p>
+          This is not goodbye. It’s simply a “see you later.”
+        </p>
+
+      </div>
+
+      <!-- GALERÍA -->
+      <div class="gallery">
+
+        <img src="imagenes/imagen2.jpeg">
+        <img src="imagenes/imagen3.jpeg">
+        <img src="imagenes/imagen4.jpeg">
+        <img src="imagenes/imagen5.jpeg">
+        <img src="imagenes/imagen6.jpeg">
+        <img src="imagenes/imagen7.jpeg">
+
+      </div>
+
+      <div class="signature">
+        — Josué
+      </div>
+
+      <button onclick="mensaje()">
+        Open Message
+      </button>
+
+    </div>
 
   </div>
 
